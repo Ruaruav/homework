@@ -1,0 +1,30 @@
+
+#import <Foundation/Foundation.h>
+#import "CoreLocation/CLLocation.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface Student : NSObject
+// public
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *major;
+@property (nonatomic, copy) NSNumber *age;
+
+- (void)study:(float*)time;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+////////////////////////////////////////////////////////
+
+#import "Student.h"
+
+@implementation Student
+
+- (void)study:(float *)time {
+    
+    NSLog("time = %f",time);
+}
+
+@end
