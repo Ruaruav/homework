@@ -1,0 +1,95 @@
+app生命周期
+1.点击应用程序图标
+2.程序入口：进入Main函数
+3.通过UIApplicationMain函数
+4.初始化UIApplication对象并且设置代理对象AppDelegate
+5.程序完成加载：[AppDelegate application:didFinishLaunchingWithOptions:]
+6.创建Window窗口：UIWindow
+7.程序被激活：[AppDelegate applicationDidBecomeActive:]
+8.点击Home键
+（1）程序取消激活状态：[AppDelegate applicationWillResignActive:]
+（2）程序进入后台：[AppDelegate applicationDidEnterBackground:]
+9.点击应用图标
+（1）程序进入前台：[AppDelegate applicationWillEnterForeground:]
+（2）程序被激活：[AppDelegate applicationDidBecomeActive:]
+10.内存警告：[AppDelegate applicationDidReceiveMemoryWarning]
+11.将要终止：[AppDelegate applicationWillTerminate]
+
+UIViewController 的生命周期
+1. loadView
+2. viewDidLoad
+3. viewWillAppear
+4. viewWillLayoutSubviews
+5. viewDidLayoutSubviews
+6. viewDidAppar
+7. viewWillDisappear
+8. viewDidDisappear
+9. dealloc
+10. didReceiveMemoryWarning/viewDidUnload
+
+UI控件
+UIButton
+UILabel
+UISwtich
+UISlider
+UITextField
+UITextView
+UISegmentedControl 
+
+UITableViewDelegate 声明的方法
+
+1.定义每个UITableView中的cell的行高
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+
+{
+
+    // indexPath.section,根据分组进行更精确的配置
+
+    return 90.0;
+
+}
+
+
+2.设置UITableView每个分组的Header的Title
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+
+    return [_arrayType objectAtIndex:section];
+
+
+}
+
+
+3.设置UITableView分组Header的高
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+    return 30.0;
+
+}
+
+
+4.设置UITableView自定义的Header
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+
+
+    ViewForCellHeader *headerView=[[[ViewForCellHeader alloc] init] autorelease];
+
+    headerView.strSectionName=[_arrayType objectAtIndex:section];
+
+    return  [headerView view];
+
+}
+
+5.设置UITableView每个分组的Footer的Title
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+
+    return [_arrayType objectAtIndex:section];
+
+    
+
+}
+
